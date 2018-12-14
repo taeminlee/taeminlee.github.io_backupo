@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Woosung Choi's Blog"
 title_separator          : "-"
 name                     : "Woosung Choi"
 description              : "An amazing website."
@@ -103,30 +103,30 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
+  name             : "Woosung Choi"
+  avatar           : "/assets/images/profile.jpg"
+  bio              : "a ph.d student studying Database Systems and AI."
+  location         : "Korea University"
+  email            : "ws_choi@korea.ac.kr"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
+      url: mailto:ws_choi@korea.ac.kr
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
+      url: "https://ws-choi.github.io"
+#    - label: "Twitter"
+#      icon: "fab fa-fw fa-twitter-square"
+#      # url: "https://twitter.com/"
+#    - label: "Facebook"
+#      icon: "fab fa-fw fa-facebook-square"
+#      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/ws-choi"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://www.instagram.com/c.woosung/"
 
 # Site Footer
 footer:
