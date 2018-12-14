@@ -4,10 +4,6 @@ date: 2018-12-14
 categories: NLP DeepLearning
 ---
 
-# Recent Trends in Deep Learning Based Natural Language Processing
-
-Tags: Survey
-Year: 2018
 
 최근 딥러닝을 기반으로 하는 NLP(Natural Language Processing: 자연어처리)나 Text Mining 기법들이 Top Conference에 많이 투고되고 있다. 현재 우리 연구실에서도 이러한 트렌드를 쫓아가려고 최신 연구동향 Survey paper[0]를 분석하고 있다. 운 좋게도 이기창 선배님 블로그 [ratsgo's blog](https://ratsgo.github.io/natural%20language%20processing/2017/08/16/deepNLP/)에 해당 논문이 한글로 잘 번역되어 있어서 페이퍼 읽는 시간을 줄일 수 있었다. 본 블로그는 [0]과 [ratsgo's blog](https://ratsgo.github.io/natural%20language%20processing/2017/08/16/deepNLP/)를 읽으며 정리하면서 쓰는 노트이다! 
 
