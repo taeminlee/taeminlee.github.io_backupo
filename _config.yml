@@ -107,9 +107,9 @@ author:
   avatar           : "/assets/images/profile.jpg"
   bio              : "a ph.d student studying Database Systems and AI."
   location         : "Korea University"
-  email            : "ws_choi@korea.ac.kr"
+#  email            : "ws_choi@korea.ac.kr"
   links:
-    - label: "Email"
+    - label: "ws_choi@korea.ac.kr"
       icon: "fas fa-fw fa-envelope-square"
       url: mailto:ws_choi@korea.ac.kr
     - label: "Website"
@@ -287,6 +287,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true
