@@ -34,41 +34,65 @@ Distributed Representation은 왜 필요하며, 어떤 기법들이 있는가가
 
 ## Distributed Representation - Word Embeddings
 
-Word Embedding 기법은 '단어'를 *d-*차원의 vector로 embedding시키는 기법을 총칭하는 듯하다.
+Word Embedding 기법은 '단어'를 *d-*차원의 vector로 embedding(mapping과 비슷하게 해석하면 될
+ 듯하다.)시키는 기법을 총칭하는 듯하다. 그러나 단어를 단순하게 vector 형식으로 표현하는 기법을 거창하게 distributed representation 이라고 부르는 것 같지는 않다. Bag of Words도 단어를 벡터로 보낸다는 점에서 보면 Word Embedding이지 않은가?  서베이 논문에 따르면, Distributional vector 또는 word embedding은 다음 핵심 가정 ([Distributional Hypothesis](https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_hypothesis))을 따른다.
 
-그러나 단어를 그냥 embedding 시키면 안되고, 다음 핵심 가정 ([Distributed Hypothesis](https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_hypothesis))에 입각하여 embedding 시켜야 한다.  (막말로 Bag of Words도 단어를 벡터로 보낸다는 점에서 보면 Word Embedding이지 않은가?)
+- [**Distributional Hypothesis**](https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_hypothesis): 같은 문맥에서 사용되거나 나타나는 (occur) 단어들은 유사한 의미를 가지는 경향이 있다.
 
-- Word Embedding의 핵심 가정: [Distributed Hypothesis](https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_hypothesis)
+> Words that are used and occur in the same contexts tend to purport similar meanings (Wikipedia)
 
-> 비슷한 의미를 가지는 단어들은 유사한 문맥에서 나타난다.
+서베이에서 나온 표현보다는 위키피디아 표현을 빌렸다. 이 표현이 본 게시글의 논리 전개에 더 적합한 듯하여. 
 
-(아직까지는 솔직히 선뜻 와닿지는 않는다. 나중에 예제 만들어가면서 파고들어봐야지.)
-
-- 이 핵심 가정은 word embedding 기법이 추구해야하는 성질을 정의한다.
+이 가정을 도대체 어디다가 쓰는가? 서베이 논문에서는 다소 불친절하게 나와있다. 바로 다음 문장이
+ 이 문장이다. 
 
 > Thus, these vectors try to capture the characteristics of the neighbors of a word.
 
-왜 그런지 고민을 좀 해봤는데, 처음에는 입문자로서 다소 비약처럼 느꼈다. 나는 이 문장을 다음과 같이 해석했다. 
+Word embedding 기법이 Distributional Hypothesis를 기반으로 하는 것과, Word embedding 기법이 추구하고자 하는 바(직역: 벡터들은 주변 단어들의 특성을 담아내려고한다)와 무슨 상관인가? 왜 그런지 고민을 좀 해봤는데, 처음에는 입문자로서 다소 비약처럼 느꼈다. 나는 이 문장을 다음과 같이 해석했다. 
 
 1. embedding 시키고자 하는 단어를 `w` 라고 해보자. 
-우리 목표는 *`w`*를 '잘' embedding (저차원 공간에 vector로서 표현)하려고 한다.
+우리 목표는 `w`를 '잘' embedding (저차원 공간에 vector로서 표현)하려고 한다.
 
-2. Distributed Hypothesis에 따르면 비슷한 의미를 가지는 단어라면 유사한 문맥에서 나타난댄다.
+2. Distributional Hypothesis에 따르면 같은 문맥에서 발견되는 단어들은 유사한 의미를 가지는 경향이 있다고한다. 
 
-3. "*`w`*가 어떠한 문맥에서 나타난다" 라는 관찰을 다음과 같이 설정해보자.
+3. 조금 더 엄밀한 상황 설정을 위해, " `w`가 어떠한 문맥에서 발견되다" 라는 관찰을 다음과 같이 설정해보자. (이와 같이 문맥을 주변 단어들이라는 것은 중요한 가정인 듯한데, 여기서는 일단 받아드리고 넘어가도록 하자.)
 
-문맥: "... 왼쪽주변단어2, 왼쪽주변단어1, *`w`*, 오른쪽주변단어1, 오른쪽주변단어2..."
+문맥: "... 왼쪽주변단어2, 왼쪽주변단어1, `w` , 오른쪽주변단어1, 오른쪽주변단어2..."
 
-4. 만약 서로 다른 단어 *`w1`*과 *`w2`* 가 완벽히 동일한 의미를 가지고 있다면, 다음과 같은 문맥이 발생할 확률이 정확하게 일치할 것이다. 
+4. (이해를 위한 극단적인 예시이니 skip해도 무방) 
 
-문맥1: "... 왼쪽주변단어2, 왼쪽주변단어1, *`w1`*, 오른쪽주변단어1, 오른쪽주변단어2..."
-문맥2: "... 왼쪽주변단어2, 왼쪽주변단어1, *`w2`*, 오른쪽주변단어1, 오른쪽주변단어2..."
+만약 서로 다른 단어 `w1`과 `w2` 가 완벽히 동일한 의미를 가지고 있다면, 임의로 주어진 문맥에서 해당 단어들이 발견될 확률이 정확하게 일치할 것이다. 
 
-극단적인 상황이라 설득력은 떨어지겠지만, 이렇게 이해하면 될 것 같다. 문헌들이 찾아보니 모든 관찰가능한 문맥에 대해 *`w1`*과 출몰할 확률이 정확하게 일치하는 단어인 *`w2`*를 찾아냈다고 가정해보자. 그렇다면 그 둘은 완벽하게 뜻이 동일한 단어로 볼 수 있지 않을까?
+문맥1: "... 왼쪽주변단어2, 왼쪽주변단어1, `w1`, 오른쪽주변단어1, 오른쪽주변단어2..."
+문맥2: "... 왼쪽주변단어2, 왼쪽주변단어1, `w2`, 오른쪽주변단어1, 오른쪽주변단어2..."
 
-5. 이렇게 이해한다면, 단어 *`w`*의 의미는 그 주변 문맥에 의해 '정의된다'라고도 해석할 수 있다. 
+    - 한국어를 사용하는 모든 사람들이 '그러나'라는 용어와 '하지만'이라는 두 비슷한 용어에 뉘앙스 차이가  전혀 없다고 느끼고, 두 용어가 사용되는 빈도 또한 5:5로 같다고 가정해보자.  또한 다음과 같이 임의의 문헌에서 임의의 문맥을 뽑고, 가운데 단어를 빈칸처리 (`?`) 해놓았다고 가정해보자.
 
-6. 결론적으로, *`w`*를 embedding 시킨 vector는 그 단어가 사용되는 주변 문맥을 잘 담아내는 vector여야 한다. 
+        문맥:  "왼쪽주변단어2, 왼쪽주변단어1, `?`, 오른쪽주변단어1, 오른쪽주변단어2..."  
+
+        직관적으로 생각해보면, `?` 자리에 '그러나'가 들어갈 확률과 '하지만'이 들어갈 확률은 완전하게 같을 것이다. 두 용어는 완전히 같으니까.
+
+    - 조금 더 일반화 해서, 임의의 문맥  `c`가 주어졌을 때, `c`에서 단어 `w1`가 발견될 확률(`P(w1|c)`)과 단어 `w2`가 발견될 확률(`P(w2|c)`)이 정확하게 같았다고 가정해보자. 이 둘은 사용되는 모든 문맥에서 상호호환 가능한 (interchangeable) 용어가 되시겠다. 그렇다면 그 둘은 완벽하게 뜻이 동일한 단어로 볼 수 있지 않을까? 
+
+    i.e. , if ( `P(w1|c) = P(w2|c) for any context c` ) then  `meaning of w1 = meaning of w2`
+    - 위 if-then 구문을 조금 더 수학적으로 간결하게 정리해보자. 우리가 경험적으로 관찰한 문맥 `c` 의 집합을 `C` (쉬운말로하면 그냥 수집한 문맥 데이터 집합)라고 할때, 다음 식을 만족하면 는 완전히 같은 의미를 가지는 용어로 볼 수 있다.
+
+    $$\sum_{c \in C}{|P(w_{1}|c)-P(w_{2}|c)|}=0$$
+
+    - 이제 5에서는 4에서 서술한 바를 조금 relaxing하여 설명해볼 것이다.
+5. 만약 서로 다른 단어 `w1`과 `w2` 가 완전하게 같지는 않지만 비슷한 의미를 가지고 있다면 어떨까? 이때는 4번 상황과는 다르게,  `P(w1|c)`와 `P(w2|c)` 가 같지 않은 문맥 `c`가 하나 이상 존재할 것이다.  
+
+i.e.,  `There exists some context c* s.t. P(w1|c*) != P(w2|c*)`
+
+    - `w1`과 `w2` 는 어느정도 유사할까? Distributional Hypothesis에 입각해서 설며해보면, 유사하면 유사할 수록 이 `P(w1|c)`와 `P(w2|c)`
+
+6. 어떠한 문맥  `c`에서는, `c`에서 단어 `w1`가 발견될 확률(`P(w1|c)`)과 단어 `w2`가 발견될 확률(`P(w2|c)`)는  정확하게 같았다면, 그 둘은 완벽하게 뜻이 동일한 단어로 볼 수 있지 않을까? 
+
+7. 이렇게 이해한다면, 단어 `w`의 의미는 그 주변 문맥에 의해 '정의된다'라고도 해석할 수 있다. 
+
+8. 결론적으로, `w`를 embedding 시킨 vector는 그 단어가 사용되는 주변 문맥을 잘 담아내는 vector여야 한다. 
+
+- 이렇게 이해한다면, 단어 `w`의 의미는 그 문맥에 의해 '정의된다'라고도 해석할 수 있다.
 
 내가 이해한 것이 맞다고 가정하고 그 뒷 내용에 대해 진술하겠다. 
 
