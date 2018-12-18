@@ -38,7 +38,7 @@ Distributed Representation은 왜 필요하며, 어떤 기법들이 있는가가
 
 ## Distributed Representation - Word Embeddings
 
-Word Embedding 기법은 '단어'를 *d-*차원의 vector로 embedding시키는 기법을 총칭하는 듯하다.
+Word Embedding 기법은 '단어'를 *d-* `d-`차원의 vector로 embedding시키는 기법을 총칭하는 듯하다.
 
 그러나 단어를 그냥 embedding 시키면 안되고, 다음 핵심 가정 ([Distributed Hypothesis](https://en.wikipedia.org/wiki/Distributional_semantics#Distributional_hypothesis))에 입각하여 embedding 시켜야 한다.  (막말로 Bag of Words도 단어를 벡터로 보낸다는 점에서 보면 Word Embedding이지 않은가?)
 
