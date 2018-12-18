@@ -76,7 +76,7 @@
   p,
   li,
   dl {
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
 
   /* paragraph indents */
@@ -94,7 +94,7 @@
 
   a:not(.btn) {
     &:hover {
-      /*text-decoration: underline;*/
+      text-decoration: underline;
 
       img {
         box-shadow: 0 0 10px rgba(#000, 0.25);
