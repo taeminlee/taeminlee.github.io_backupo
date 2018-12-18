@@ -92,7 +92,8 @@
     }
   }
 
-  a:hover {
+  a:not(.btn) {
+    &:hover {
       text-decoration: underline;
 
       img {
