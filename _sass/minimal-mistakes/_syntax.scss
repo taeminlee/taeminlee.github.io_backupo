@@ -7,7 +7,7 @@ figure.highlight {
   position: relative;
   margin-bottom: 1em;
   background: $base00;
-  color:  #c0392b;
+  color: $base05;
   font-family: $monospace;
   font-size: $type-size-6;
   line-height: 1.8;
@@ -18,6 +18,10 @@ figure.highlight {
     margin: 0;
     padding: 1em;
   }
+}
+
+code.highlight-rough{
+  color:  #c0392b
 }
 
 .highlight table {
@@ -41,9 +45,9 @@ figure.highlight {
     }
 
     /* code */
-    &.code,
-    &.rouge-code {
-      padding-left: 1em;
+    &.code,color:  #c0392b
+    &.rougcolor:  #c0392be-code {
+      padding-lecolor:  #c0392bft: 1em;
     }
   }
 
