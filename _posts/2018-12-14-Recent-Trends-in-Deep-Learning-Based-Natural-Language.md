@@ -79,3 +79,5 @@ Word Embedding 기법은 '단어'를 *d-*차원의 vector로 embedding시키는 
 이런 식으로 만들어진 vector들인 distributional vector들은 다음과 같은 장점을 가진다.
 
 - 단어간의 유사도를 측정(measuring)할 수 있다.
+
+$$\int f(x)~dx$$
