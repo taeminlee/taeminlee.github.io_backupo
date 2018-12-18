@@ -169,6 +169,7 @@ td > code {
   padding-top: 0.1rem;
   padding-bottom: 0.1rem;
   font-size: 0.8em;
+  color : #990000;
   background: $code-background-color;
   border-radius: $border-radius;
 
@@ -177,10 +178,6 @@ td > code {
     letter-spacing: -0.2em;
     content: "\00a0"; /* non-breaking space*/
   }
-}
-
-code {
-  color : red;
 }
 
 /* horizontal rule */
