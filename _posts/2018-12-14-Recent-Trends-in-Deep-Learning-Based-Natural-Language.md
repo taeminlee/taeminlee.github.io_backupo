@@ -1,6 +1,7 @@
 ---
 title: "Recent Trends in Deep Learning Based Natural Language Processing"
 classes: wide
+math: true
 date: 2018-12-14
 categories: NLP DeepLearning
 ---
