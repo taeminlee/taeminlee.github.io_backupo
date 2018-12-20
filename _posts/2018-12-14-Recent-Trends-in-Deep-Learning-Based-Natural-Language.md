@@ -3,7 +3,7 @@ title: "Recent Trends in Deep Learning Based Natural Language Processing"
 classes: wide
 math: true
 date: 2018-12-18
-categories: NLP DeepLearning
+categories: NLP DeepLearning PaperReview
 ---
 
 최근 딥러닝을 기반으로 하는 NLP(Natural Language Processing: 자연어처리)나 Text Mining 기법들이 Top Conference에 많이 투고되고 있다. 현재 우리 연구실에서도 이러한 트렌드를 쫓아가려고 최신 연구동향 Survey paper
