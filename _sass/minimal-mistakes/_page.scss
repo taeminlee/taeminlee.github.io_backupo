@@ -80,7 +80,18 @@
   p,
   li,
   dl {
+
     font-size: 1em;
+
+    @include breakpoint($large) {
+      font-size: 0.95em;
+    }
+
+    @include breakpoint($x-large) {
+      font-size: 0.95em;
+    }
+
+    
   }
 
   /* paragraph indents */
