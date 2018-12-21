@@ -1,5 +1,5 @@
 ---
-title: "Word2Vec 파헤치기!"
+title: "Paper Review: Distributed Representations ofWords and Phrases and their Compositionality"
 classes: wide
 math: true
 date: 2018-12-20

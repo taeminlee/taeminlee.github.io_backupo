@@ -1,5 +1,5 @@
 ---
-title: "Review: A Neural Probabilistic Language Model"
+title: "Paper Review: A Neural Probabilistic Language Model"
 classes: wide
 math: true
 date: 2018-12-21
