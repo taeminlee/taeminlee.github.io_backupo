@@ -106,7 +106,7 @@ Claude Shannon: 되는데요?
 
 2번 지적은 다소 쉽다. 전통적인 Statistical Language Modeling 기법들은 말 그대로 트레이닝 데이터에서 문장 또는 단어가 발견될 확률을 통계적으로 추정한다. 이를테면 
 
-$${P(w_{i}|w_{1},w_{2},...,w_{i-1})} = {{count(w_{1},w_{2},...,w_{i-1},w_{i})} \over {count(w_{1},w_{2},...,w_{i-1})}}$$
+$${P(w_{i}|w_{1},w_{2},...,w_{i-1})} = \frac{count(w_{1},w_{2},...,w_{i-1},w_{i})} {count(w_{1},w_{2},...,w_{i-1})}$$
 
 와 같이 표현된다. ([출처: Wikipedia](https://en.wikipedia.org/wiki/Language_model#n-gram_models))
 
