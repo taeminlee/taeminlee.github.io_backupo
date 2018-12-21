@@ -1,11 +1,3 @@
----
-title: "Review: A Neural Probabilistic Language Model"
-classes: wide
-math: true
-date: 2018-12-21
-categories: NLP DeepLearning PaperReview
----
-
 # A Neural Probabilistic Language Model
 
 최근 작성한 [포스트](https://ws-choi.github.io/nlp/deeplearning/paperreview/Recent-Trends-in-Deep-Learning-Based-Natural-Language/)에서 "Distributed Representation은 왜 필요한가? (중략) 전통적인 NLP 기법은 차원의 저주 문제가 발생한다고 한다. [7]번 논문에서 설명되어있다는데... "라고 언급한 적이 있다. 본포스트에서는 문제의 [7]번 논문 
@@ -34,7 +26,7 @@ Statistical language modeling의 목적은 단어들의 배열(sequence)에 대�
         - 문제는 관찰한 데이터 (training data) 집합과 훈련 후 마주하는 테스트 데이터 (test data) 간에 괴리가 생긴다는 것이다.
             - 예를 들어 데이터 학습을 빡세게 했다고 치자. 그렇다면 "예를 들어 데이터 학습을 빡세게 했다고 치자"라는 문장을 구글에 검색하면, 정확하게 일치하는 문장이 나올까?
 
-                ![](/assets/NPLM/Untitled-f6525cfd-cb7a-4026-985f-1998b8674aa9.png)
+                ![](Untitled-f6525cfd-cb7a-4026-985f-1998b8674aa9.png)
 
                 예제 검색
 
@@ -120,11 +112,11 @@ $${P(w_{i}|w_{1},w_{2},...,w_{i-1})} = {{count(w_{1},w_{2},...,w_{i-1},w_{i})} \
 
 다음과 같은 관점에서 사람이 보기에는 S1과 S2는 매우 유사한 문장이다. 
 
-![](/assets/NPLM/Untitled-9a1ed808-9b94-43af-a714-7ef2eef95eaf.png)
+![](Untitled-9a1ed808-9b94-43af-a714-7ef2eef95eaf.png)
 
 그런데 이 문장들을 벡터화 시켜보자. 간단하게 16차원의 uni-gram으로만 표현해보자.
 
-![](/assets/NPLM/Untitled-652c2133-7c5a-4110-9cd3-b86317ebfea1.png)
+![](Untitled-652c2133-7c5a-4110-9cd3-b86317ebfea1.png)
 
 이렇게 얻은 벡터를 이용하여 [코사인 유사도](https://en.wikipedia.org/wiki/Cosine_similarity)를 계산해보면
 
