@@ -34,7 +34,7 @@ categories: NLP DeepLearning PaperReview
 Distributed Representation은 왜 필요하며, 어떤 기법들이 있는가가 이 챕터의 핵심이다. 
 
 - Distributed Representation은 왜 필요한가?
-이 논문에서는 딥러닝 이전의 NLP 기법을 통계적 NLP (Statistical NLP)로 통칭하나보다. 여튼 이 전통적인 NLP 기법은 [차원의 저주 (curse of dimensionality)](https://en.wikipedia.org/wiki/Curse_of_dimensionality) 문제가 발생한다고 한다. [5]번 논문에서 설명되어있다는데 내용이 아주 길어서 안읽었다. 일단 받아드리고 나중에 읽어야지.
+이 논문에서는 딥러닝 이전의 NLP 기법을 통계적 NLP (Statistical NLP)로 통칭하나보다. 여튼 이 전통적인 NLP 기법은 [차원의 저주 (curse of dimensionality)](https://en.wikipedia.org/wiki/Curse_of_dimensionality) 문제가 발생한다고 한다. [7]번 논문에서 설명되어있다는데 내용이 아주 길어서 안읽었다. 일단 받아드리고 나중에 읽어야지.
 - Distributed Representation에는 어떤 기법이 있는가?
     - Word Embeddings
     - Word2Vec (Word Embedding의 일종)
