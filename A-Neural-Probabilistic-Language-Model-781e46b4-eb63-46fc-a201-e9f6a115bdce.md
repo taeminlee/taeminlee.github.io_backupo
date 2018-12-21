@@ -1,10 +1,4 @@
----
-title: "Review: A Neural Probabilistic Language Model"
-classes: wide
-math: true
-date: 2018-12-21
-categories: NLP DeepLearning PaperReview
----
+# A Neural Probabilistic Language Model
 
 최근 작성한 [포스트](https://ws-choi.github.io/nlp/deeplearning/paperreview/Recent-Trends-in-Deep-Learning-Based-Natural-Language/)에서 "Distributed Representation은 왜 필요한가? (중략) 전통적인 NLP 기법은 차원의 저주 문제가 발생한다고 한다. [7]번 논문에서 설명되어있다는데... "라고 언급한 적이 있다. 본포스트에서는 문제의 [7]번 논문 
 
@@ -31,7 +25,9 @@ Statistical language modeling의 목적은 단어들의 배열(sequence)에 대�
         - 우리의 목적은 단어의 배열에 대한 joint probability를 계산할 수 있는 function을 만드는 것이었다.
         - 문제는 관찰한 데이터 (training data) 집합과 훈련 후 마주하는 테스트 데이터 (test data) 간에 괴리가 생긴다는 것이다.
             - 예를 들어 데이터 학습을 빡세게 했다고 치자. 그렇다면 "예를 들어 데이터 학습을 빡세게 했다고 치자"라는 문장을 구글에 검색하면, 정확하게 일치하는 문장이 나올까?
-                ![](/assets/NPLM/Untitled-f6525cfd-cb7a-4026-985f-1998b8674aa9.png)
+
+                ![](Untitled-f6525cfd-cb7a-4026-985f-1998b8674aa9.png)
+
                 예제 검색
 
             - 안나온다. 구글이 training 한 데이터에 저 문장과 정확히 일치하는 문장이 없었기 때문이다. 50만개의 단어로 생성할 수 있는 문장의 수는 무한하기 때문에 애초에 정확하게 일치하는 문장을 찾는 것은 당연하게도 매우 어렵다. 문장의 길이가 길면 길수록 어렵다.
