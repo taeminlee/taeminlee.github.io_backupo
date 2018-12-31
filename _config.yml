@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "wschoi" # "air", "aqua", "contrast", "dark", "dirt",
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "Woosung Choi's Blog"
+title                    : "Taemin Lee's Blog"
 title_separator          : "-"
-name                     : "Woosung Choi"
+name                     : "Taemin Lee"
 description              : "An amazing website."
-url                      : "https://ws-choi.github.io"
+url                      : "https://taeminlee.github.io"
 baseurl                  : ""
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -29,7 +29,7 @@ words_per_minute         : 200
 comments:
   provider               : "disqus"# false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
-    shortname            : Woosung Choi's Blog # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : Taemin Lee's Blog # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -103,18 +103,18 @@ analytics:
 
 # Site Author
 author:
-  name             : "Woosung Choi"
+  name             : "Taemin Lee"
   avatar           : "/assets/images/profile_final.png"
   bio              : "a ph.d student studying Database Systems and AI."
   location         : "Korea University"
-#  email            : "ws_choi@korea.ac.kr"
+#  email            : "taeminlee@korea.ac.kr"
   links:
-    - label: "ws_choi@korea.ac.kr"
+    - label: "taeminlee@korea.ac.kr"
       icon: "fas fa-fw fa-envelope-square"
-      url: mailto:ws_choi@korea.ac.kr
+      url: mailto:taeminlee@korea.ac.kr
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://ws-choi.github.io"
+      url: "https://taeminlee.github.io"
 #    - label: "Twitter"
 #      icon: "fab fa-fw fa-twitter-square"
 #      # url: "https://twitter.com/"
@@ -123,10 +123,10 @@ author:
 #      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/ws-choi"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/c.woosung/"
+      url: "https://github.com/taeminlee"
+#     - label: "Instagram"
+#       icon: "fab fa-fw fa-instagram"
+#       url: "https://www.instagram.com/c.woosung/"
 
 # Site Footer
 footer:
