@@ -28,12 +28,9 @@
 
 선형 회귀 문제는 입력값$X$와 출력값$Y$의 쌍이 주어졌을 때 이를 가장 잘 표현하는 선형 방정식을 찾아내는 문제 입니다.
 
-<center>
-
 ![](../assets/2018-12-31-tensorflow-with-miniconda/2018-12-31-18-26-28.png)
 [X축 : 입력 값, Y축 : 출력 값, 청색 선 : 선형 방정식]
 (이미지 출처 : http://thoughtschangeworld.blogspot.com/2018/03/tensorflow-linear-regression.html)
-</center>
 
 ##### 1) 텐서
 
