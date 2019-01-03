@@ -81,7 +81,8 @@ https://conda.io/miniconda.html
 ### CUDA 및 cuDNN 설치
 
 - CUDA로 GPU를 이용해 신경망을 학습하면 CPU를 이용하는 것보다 100x 빠르게 할 수 있습니다. CUDA는 nvidia GPU를 이용하여 병렬 처리 알고리즘을 처리하는 GPGPU 도구입니다. nvidia에서 신경망과 관련된 기본 연산들을 CUDA로 구동하는 cuDNN 라이브러리를 공개하고 있습니다.
-- CUDA와 cuDNN 라이브러리 설치는 [여기](https://www.tensorflow.org/install/gpu) 혹은 [여기](https://dwfox.tistory.com/85)를 참고하시면 됩니다.
+- CUDA와 cuDNN 라이브러리 설치는 [여기](https://www.tensorflow.org/install/gpu)를 참고하시면 됩니다.
+  - 주의! cuda와 cuDNN의 여러가지 버전 중에 가이드에 명시된 버전으로 설치하셔야 합니다.
 
 ### 텐서플로우 설치
 
