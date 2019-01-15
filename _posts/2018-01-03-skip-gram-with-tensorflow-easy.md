@@ -3,7 +3,6 @@ title: "스킵 그램을 텐서플로우로 구현하기 (순한맛)"
 classes: wide
 math: true
 date: 2018-01-03
-categories: 작성중
 ---
 
 # 스킵 그램을 텐서플로우로 구현하기 (순한맛)

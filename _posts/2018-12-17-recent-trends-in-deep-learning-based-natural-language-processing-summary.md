@@ -3,7 +3,6 @@ title: "Paper: Recent trends in deep learning based natural language processing"
 classes: wide
 math: true
 date: 2018-12-27
-categories: NLP DeepLearning PaperReview
 ---
 
 Young, T. et al., 2018. Recent trends in deep learning based natural language processing. ieee Computational intelligenCe magazine, 13(3), pp.55–75.
@@ -14,7 +13,7 @@ https://ratsgo.github.io/natural%20language%20processing/2017/08/16/deepNLP/
 
 <!-- TOC -->
 
-- [categories: NLP DeepLearning PaperReview](#categories-nlp-deeplearning-paperreview)
+- [date: 2018-12-27](#date-2018-12-27)
 - [Outline](#outline)
 - [Definitions](#definitions)
     - [Distrubuted Representation](#distrubuted-representation)

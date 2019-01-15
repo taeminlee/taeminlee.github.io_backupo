@@ -3,7 +3,6 @@ title: "미니콘다 가상 환경 설정 및 윈도우 실행 배치 파일 만
 classes: wide
 math: true
 date: 2018-01-10
-categories: 개발환경
 ---
 
 

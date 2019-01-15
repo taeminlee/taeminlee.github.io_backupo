@@ -3,7 +3,6 @@ title: "미니콘다로 텐서플로우 개발 환경 설정 (windows 10)"
 classes: wide
 math: true
 date: 2018-12-31
-categories: 개발환경
 ---
 
 # 미니콘다로 텐서플로우 개발 환경 설정 (windows 10)
