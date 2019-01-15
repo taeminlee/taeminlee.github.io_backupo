@@ -1,20 +1,14 @@
+---
+title: "미니콘다로 텐서플로우 개발 환경 설정 (windows 10)"
+classes: wide
+math: true
+date: 2018-12-31
+categories: 개발환경
+---
+
 # 미니콘다로 텐서플로우 개발 환경 설정 (windows 10)
 
 본 문서는 windows 10 환경에서 미니콘다를 이용하여 텐서플로우를 다루는 방법을 다룹니다.
-
-- [미니콘다로 텐서플로우 개발 환경 설정 (windows 10)](#%EB%AF%B8%EB%8B%88%EC%BD%98%EB%8B%A4%EB%A1%9C-%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-windows-10)
-    - [텐서플로우란?](#%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0%EB%9E%80)
-      - [텐서와 플로우 예제](#%ED%85%90%EC%84%9C%EC%99%80-%ED%94%8C%EB%A1%9C%EC%9A%B0-%EC%98%88%EC%A0%9C)
-        - [1) 텐서](#1-%ED%85%90%EC%84%9C)
-        - [2) 계산 그래프 (플로우)](#2-%EA%B3%84%EC%82%B0-%EA%B7%B8%EB%9E%98%ED%94%84-%ED%94%8C%EB%A1%9C%EC%9A%B0)
-    - [미니콘다 설치](#%EB%AF%B8%EB%8B%88%EC%BD%98%EB%8B%A4-%EC%84%A4%EC%B9%98)
-      - [미니콘다란?](#%EB%AF%B8%EB%8B%88%EC%BD%98%EB%8B%A4%EB%9E%80)
-      - [미니콘다 다운로드](#%EB%AF%B8%EB%8B%88%EC%BD%98%EB%8B%A4-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C)
-      - [설치 확인](#%EC%84%A4%EC%B9%98-%ED%99%95%EC%9D%B8)
-        - [설치 트러블 슈팅](#%EC%84%A4%EC%B9%98-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85)
-    - [CUDA 및 cuDNN 설치](#cuda-%EB%B0%8F-cudnn-%EC%84%A4%EC%B9%98)
-    - [텐서플로우 설치](#%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0-%EC%84%A4%EC%B9%98)
-    - [텐서플로우 설치 확인](#%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0-%EC%84%A4%EC%B9%98-%ED%99%95%EC%9D%B8)
 
 ### 텐서플로우란?
 

@@ -1,3 +1,12 @@
+---
+title: "미니콘다 가상 환경 설정 및 윈도우 실행 배치 파일 만들기"
+classes: wide
+math: true
+date: 2018-01-10
+categories: 개발환경
+---
+
+
 # 미니콘다 가상 환경 설정 및 윈도우 실행 배치 파일 만들기
 
 [앞선 글](2018-12-31-tensorflow-with-miniconda.md)에서 미니콘다를 설치하는 방법을 다루었습니다.
