@@ -24,6 +24,34 @@ conda create --name [ENV_NAME] [PRE_INSTALL_PACKAGES]
 
 `--name` 인자로 가상 개발 환경 이름을 정할 수 있습니다. `PRE_INSTALL_PACKAGES`는 파이썬 버전, 특정 패키지, 패키지 집합 등을 명시하여 설치할 수 있습니다.
 
+### 가상 개발 환경 예시
+
+1. numpy + jupyter + matplotlib
+
+numpy를 이용해서 신경망을 코딩할 때 사용하는 기본적인 조합입니다. jupyter는 웹 브라우저 기반 개발 도구 입니다. matplotlib는 그래프를 그리는 라이브러리 입니다.
+
+```sh
+conda create --name numpy numpy jupyter matplotlib
+```
+
+2. tensorflow-gpu + jupyter + matplotlib
+
+```sh
+conda create --name tensorflow tensorflow-gpu jupyter matplotlib
+```
+
+3. pytorch + jupyter + matplotlib + torchvision
+
+```sh
+conda create --name pytorch -c pytorch pytorch torchvision jupyter matplotlib
+```
+
+pytorch는 pytorch 배포 채널을 통해서만 안정적인 버전이 제공되고 있으며, 기본 anaconda cloud 배포 채널은 구버전이 제공되고 있습니다. 안정적인 버전을 설치하기 위해 `-c pytorch` 명령인자로 배포 채널을 명시합니다. 
+
+`pytorch`는 신경망 개발 프레임워크 중 하나로 좀 더 유연한 개발이 가능합니다. `torchvision`은 이미지와 관련된 함수들이 추가된 확장 라이브러리입니다.
+
+4. python 3.5 + 아나콘다
+
 예를 들어, 다음은 `mydev`라는 이름의 가상 개발 환경을 `python 3.5` 버전을 이용하고 `anaconda`의 모든 라이브러리를 추가하는 명령어 입니다.
 
 ```sh
