@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TypeType (dev by persuade@gmail.com)</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@latest/lib/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+</head>
+
+<script>
+
+    function typetype() {
+        var options = {
+            stringsElement: '#typed-strings',
+            typeSpeed: Number(localStorage.getItem("typeSpeed")),
+            backDelay: Number(localStorage.getItem("backDelay")),
+            onComplete: (self) => {
+                setTimeout(() => {
+                    $("#typed").hide();
+                    $(".typed-cursor").hide();
+                    $("#typed-strings").fadeIn({
+                        complete: () => {
+                            $("html, body").animate({ scrollTop: $("#to_page2").offset().top }, 1000);
+                        }
+                    });
+                    $("#to_page2").fadeIn();
+                }, 5000);
+            }
+        }
+
+        console.log(options)
+
+        var typed = new Typed("#typed", options);
+    }
+    $(document).ready(function () {
+
+        if (localStorage.getItem("typeSpeed") === null) {
+            localStorage.setItem("typeSpeed", 150);
+        }
+
+        if (localStorage.getItem("backDelay") === null) {
+            localStorage.setItem("backDelay", 2000);
+        }
+
+        $("#input_text").val(localStorage.getItem("input_text"))
+        $("#typeSpeed").val(localStorage.getItem("typeSpeed"))
+        $("#backDelay").val(localStorage.getItem("backDelay"))
+
+        $("#to_page2").click(function () {
+            localStorage.setItem("input_text", $("#input_text").val());
+            localStorage.setItem("typeSpeed", $("#typeSpeed").val());
+            localStorage.setItem("backDelay", $("#backDelay").val());
+            $("#typed-strings").html(marked($.trim($("#input_text").val())))
+            $("#page1").hide();
+            $("#page2").show();
+            typetype();
+        });
+    });
+</script>
+
+<body>
+    <section class="hero is-fullheight" id='page1'>
+        <div class="hero-head ">
+            <div class="container">
+              <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                  <strong class="navbar-item">
+                    TYPETYPE
+                  </strong>
+                </div>
+              </nav>
+            </div>
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">글자 표시 간격 (ms)</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type='number' id='typeSpeed' placeholder="글자 표시 간격 (ms)" value=150>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">다음 문장 딜레이 (ms)</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type='number' id='backDelay' placeholder="다음 문장 딜레이 (ms)"
+                                    value=2000>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <label class="label">타이핑 글</label>
+                <textarea class="textarea" id='input_text' placeholder="마크다운 문법으로 작성" rows="10"></textarea>
+                <button id='to_page2' class="button is-large is-fullwidth is-primary">타이핑</button>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="content has-text-centered">
+              <p>
+                <strong>TYPETYPE</strong> by Taemin Lee.
+              </p>
+            </div>
+          </footer>
+    </section>
+    <section class="hero is-fullheight" id='page2' style="display: none;">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-8 is-offset-2">
+
+                    <div class='container box content is-large'>
+
+                        <div id="typed-strings">
+                            안녕**하세**요
+                            반갑습니다
+                            재미있네요
+                        </div>
+                        <span id="typed"></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
