@@ -5,31 +5,45 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TypeType (dev by persuade@gmail.com)</title>
+    <title>TypeType</title>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@latest/lib/typed.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://kit.fontawesome.com/071ea89b64.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
 </head>
+
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
 
 <script>
 
     function typetype() {
         var options = {
             stringsElement: '#typed-strings',
+            loop: true,
+            startDelay: Number(localStorage.getItem("startDelay")),
             typeSpeed: Number(localStorage.getItem("typeSpeed")),
             backDelay: Number(localStorage.getItem("backDelay")),
             onComplete: (self) => {
-                setTimeout(() => {
-                    $("#typed").hide();
-                    $(".typed-cursor").hide();
-                    $("#typed-strings").fadeIn({
-                        complete: () => {
-                            $("html, body").animate({ scrollTop: $("#to_page2").offset().top }, 1000);
-                        }
-                    });
-                    $("#to_page2").fadeIn();
-                }, 5000);
+                // setTimeout(() => {
+                //     $("#typed").hide();
+                //     $(".typed-cursor").hide();
+                //     $("#typed-strings").fadeIn({
+                //         complete: () => {
+                //             $("html, body").animate({ scrollTop: $("#to_page2").offset().top }, 1000);
+                //         }
+                //     });
+                //     $("#to_page2").fadeIn();
+                // }, 5000);
             }
         }
 
@@ -38,6 +52,14 @@
         var typed = new Typed("#typed", options);
     }
     $(document).ready(function () {
+
+        if (localStorage.getItem("zoom") === null) {
+            localStorage.setItem("zoom", 1.0);
+        }
+
+        if (localStorage.getItem("startDelay") === null) {
+            localStorage.setItem("startDelay", 1000);
+        }
 
         if (localStorage.getItem("typeSpeed") === null) {
             localStorage.setItem("typeSpeed", 150);
@@ -48,17 +70,40 @@
         }
 
         $("#input_text").val(localStorage.getItem("input_text"))
+
+        $("#zoom").val(localStorage.getItem("zoom"))
+        $("#startDelay").val(localStorage.getItem("startDelay"))
         $("#typeSpeed").val(localStorage.getItem("typeSpeed"))
         $("#backDelay").val(localStorage.getItem("backDelay"))
 
         $("#to_page2").click(function () {
             localStorage.setItem("input_text", $("#input_text").val());
+            localStorage.setItem("zoom", $("#zoom").val());
+            localStorage.setItem("startDelay", $("#startDelay").val());
             localStorage.setItem("typeSpeed", $("#typeSpeed").val());
             localStorage.setItem("backDelay", $("#backDelay").val());
-            $("#typed-strings").html(marked($.trim($("#input_text").val())))
+            $(".container.box").animate({ 'zoom': $("#zoom").val() }, 0);
+            let html = marked($.trim($("#input_text").val()));
+            html = html.replace(/(^((?!<\/p>).)*$)/gm, "$1</br>"); // br trick
+            html = html.replace(/(\$[^\$]*\$)/gm,"`$1`"); // mathjax trick
+            $("#typed-strings").html(html)
+            MathJax.typeset()
             $("#page1").hide();
             $("#page2").show();
             typetype();
+        });
+
+        $("#sample").click(function () {
+            $("#input_text").val('**안녕**하세요 <i class="far fa-smile"></i>\n\n<mark>반갑</mark>습니다.\nTYPETYPE$\alpha$입니다.\n\nTYPETYPE$\alpha$  $=$  ${MathJax}$ ^500 $+$ ${Typed}$ ^500 $+$ ${Marked}$ 입니다.\n\n<font color="blue">안녕</font>히 계세요 <i class="fas fa-hand-sparkles"></i>');
+        })
+
+        // Check for click events on the navbar burger icon
+        $(".navbar-burger").click(function () {
+
+            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+            $(".navbar-burger").toggleClass("is-active");
+            $(".navbar-menu").toggleClass("is-active");
+
         });
     });
 </script>
@@ -67,17 +112,58 @@
     <section class="hero is-fullheight" id='page1'>
         <div class="hero-head ">
             <div class="container">
-              <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                  <strong class="navbar-item">
-                    TYPETYPE
-                  </strong>
-                </div>
-              </nav>
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <strong class="navbar-item">
+                            TYPETYPE $\alpha$
+                        </strong>
+                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                            data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href='https://fontawesome.com/icons?d=gallery&m=free'
+                                target="_black">아이콘 찾기</a>
+                        </div>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <button id='sample' class='button'>예제 문장 불러오기</button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
         <div class="hero-body">
             <div class="container has-text-centered">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">확대배율</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type='number' id='zoom' placeholder="확대배율 (x)" value=1.0>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">시작 딜레이 (ms)</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type='number' id='startDelay' placeholder="시작 딜레이 (ms)" value=2000>
+                            </p>
+                        </div>
+                    </div>
+                </div>
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
                         <label class="label">글자 표시 간격 (ms)</label>
@@ -97,8 +183,7 @@
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input class="input" type='number' id='backDelay' placeholder="다음 문장 딜레이 (ms)"
-                                    value=2000>
+                                <input class="input" type='number' id='backDelay' placeholder="다음 문장 딜레이 (ms)" value=2000>
                             </p>
                         </div>
                     </div>
@@ -110,23 +195,20 @@
         </div>
         <footer class="footer">
             <div class="content has-text-centered">
-              <p>
-                <strong>TYPETYPE</strong> by Taemin Lee.
-              </p>
+                <p>
+                    <strong>TYPETYPE</strong> by <a href='http://taeminlee.github.io/'>Taemin Lee</a>.
+                </p>
             </div>
-          </footer>
+        </footer>
     </section>
     <section class="hero is-fullheight" id='page2' style="display: none;">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <div class="column is-8 is-offset-2">
+                <div class="column is-12">
 
                     <div class='container box content is-large'>
 
                         <div id="typed-strings">
-                            안녕**하세**요
-                            반갑습니다
-                            재미있네요
                         </div>
                         <span id="typed"></span>
                     </div>
