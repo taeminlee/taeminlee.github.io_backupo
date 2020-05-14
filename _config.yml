@@ -105,8 +105,8 @@ analytics:
 author:
   name             : "Taemin Lee"
   avatar           : "/assets/images/profile.PNG"
-  bio              : "a ph.d student studying Database Systems and AI."
-  location         : "Korea University"
+  bio              : "researcher & developer"
+  location         : "Korea University HI AI research center"
 #  email            : "taeminlee@korea.ac.kr"
   links:
     - label: "taeminlee@korea.ac.kr"
