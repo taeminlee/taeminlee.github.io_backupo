@@ -125,7 +125,7 @@
             const fileList = event.target.files;
             const reader = new FileReader();
             reader.onload = (progressEvent) => {
-                $.getJSON(reader.result, function(data){
+                $.parseJSON(reader.result, function(data){
                     console.log(data);
                 });
             };
