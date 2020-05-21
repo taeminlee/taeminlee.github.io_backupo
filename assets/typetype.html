@@ -51,8 +51,8 @@
 
         var typed = new Typed("#typed", options);
     }
-    $(document).ready(function () {
 
+    function loadConfig() {
         if (localStorage.getItem("zoom") === null) {
             localStorage.setItem("zoom", 1.0);
         }
@@ -75,6 +75,11 @@
         $("#startDelay").val(localStorage.getItem("startDelay"))
         $("#typeSpeed").val(localStorage.getItem("typeSpeed"))
         $("#backDelay").val(localStorage.getItem("backDelay"))
+    }
+
+    $(document).ready(function () {
+
+        loadConfig();
 
         $("#to_page2").click(function () {
             localStorage.setItem("input_text", $("#input_text").val());
@@ -126,7 +131,10 @@
             const reader = new FileReader();
             reader.onload = (progressEvent) => {
                 $.parseJSON(reader.result, function(data){
-                    console.log(data);
+                    Object.keys(data).forEach(function (k) {
+                        localStorage.setItem(k, data[k]);
+                    });
+                    loadConfig();
                 });
             };
             reader.readAsText(fileList[0]);
