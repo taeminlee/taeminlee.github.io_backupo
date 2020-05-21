@@ -123,11 +123,13 @@
 
         $("#json_file").change((event) => {
             const fileList = event.target.files;
-            console.log(fileList);
-            console.log(fileList[0]);
             const reader = new FileReader();
-            data = reader.readAsText(fileList[0]);
-            console.log(jQuery.getJSON(data));
+            reader.readAsText(fileList[0]);
+            reader.onload = (progressEvent) => {
+                $.getJSON(reader.result, function(data){
+                    console.log(data);
+                });
+            };
         })
 
         // Check for click events on the navbar burger icon
