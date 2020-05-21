@@ -130,12 +130,12 @@
             const fileList = event.target.files;
             const reader = new FileReader();
             reader.onload = (progressEvent) => {
-                $.parseJSON(reader.result, function(data){
-                    Object.keys(data).forEach(function (k) {
-                        localStorage.setItem(k, data[k]);
-                    });
-                    loadConfig();
+                console.log(reader.result)
+                data = $.parseJSON(reader.result)
+                Object.keys(data).forEach(function (k) {
+                    localStorage.setItem(k, data[k]);
                 });
+                loadConfig();
             };
             reader.readAsText(fileList[0]);
         })
